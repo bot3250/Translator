@@ -7,6 +7,7 @@
     tools:context=".MainActivity"
     android:background="@color/back_ground">
 
+    <!--Заголовок-->
     <TextView
         android:id="@+id/textViewHeader"
         android:layout_width="378dp"
@@ -21,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022" />
 
+    <!--Поле ввода-->
     <EditText
         android:id="@+id/editTextInput"
         android:layout_width="383dp"
@@ -37,6 +39,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewHeader" />
 
+    <!--Помянять язык-->
     <ImageButton
         android:id="@+id/imageButtonChange"
         android:layout_width="100dp"
@@ -50,6 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextInput"
         app:srcCompat="@drawable/change" />
 
+    <!--поле вывода-->
     <TextView
         android:id="@+id/TextOutput"
         android:layout_width="383dp"
@@ -67,6 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageButtonChange"
         app:layout_constraintVertical_bias="0.063" />
 
+    <!--кнопка перевести-->
     <Button
         android:id="@+id/buttonTranslate"
         android:layout_width="188dp"
