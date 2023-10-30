@@ -56,7 +56,7 @@
     <!--поле вывода-->
     <TextView
         android:id="@+id/TextOutput"
-        android:layout_width="383dp"
+        android:layout_width="380dp"
         android:layout_height="150dp"
         android:background="@color/back_ground_input"
         android:gravity="start"
