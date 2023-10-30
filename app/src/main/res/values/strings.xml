@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Translator</string>
+    <string name="header">Русско-финский переводчик</string>
+
+    <string name="input_ru">Введите текст на русском</string>
+    <string name="input_fin">Введите текст на финском</string>
+
+    <string name="translate_ru">перевод на русском</string>
+    <string name="translate_fin">перевод на финском</string>
+
+    <string name="translate">Перевести</string>
+
+</resources>
