@@ -17,59 +17,54 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private EditText textInput; //поле ввода
-    private TextView textOutput; // поле вывода
+    private TextView textOutput, textHint; // поле вывода
     private String text; //буферная строка
-    private Map<String, String> ruFi;// словарь
-    private Button buttonTranslate; // кнопка перевести
+    private Dictionary dictionary;
+    private Button buttonTranslate, buttonHelp; // кнопка перевести
     private ImageButton buttonChange; // кнопка перевести
     private String languageInput = "ru";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ruFi = new HashMap<>();
-        dataInitial();
+        dictionary = new Dictionary();
         initInterface();
     }
 
     private void initInterface(){
         textInput = findViewById(R.id.editTextInput);
         textOutput = findViewById(R.id.TextOutput);
+        textHint = findViewById(R.id.textViewHint);
+
         buttonTranslate = findViewById(R.id.buttonTranslate);
         buttonChange = findViewById(R.id.imageButtonChange);
+        buttonHelp = findViewById(R.id.buttonHelp);
 
         buttonTranslate.setOnClickListener(listenerTranslate);
         buttonChange.setOnClickListener(listenerChange);
+        buttonHelp.setOnClickListener(listenerHelp);
     }
 
-    private void dataInitial(){
-        //добавление слов в словарь
-        ruFi.put("Привет", "Hei");
-        ruFi.put("Пока", "Hei hei");
-        ruFi.put("Я", "minä");
-        ruFi.put("Ты", "sinä");
-        ruFi.put("Мы", "Me");
-        ruFi.put("Как дела", "mitä kuuluu");
-        ruFi.put("она", "hän");
-        ruFi.put("он", "hei");
-    }
 
     private View.OnClickListener listenerTranslate = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            dictionary = new Dictionary();
             text = textInput.getText().toString();
-            if(ruFi.get(text)!=null){
-                textOutput.setText(ruFi.get(text));
+            WordKey wordKey= new WordKey(text);
+            Word translatedWord = dictionary.allWord.get(wordKey);
+            if(translatedWord!=null){
+                textOutput.setText(translatedWord.fin);
             }else {
                 textOutput.setText("Такого слова нет в базе");
             }
         }
     };
 
-    private View.OnClickListener listenerChange = new View.OnClickListener() {
+    private View.OnClickListener listenerChange = new View.OnClickListener() {////
         @Override
         public void onClick(View view) {
+            dictionary = new Dictionary();
             if(languageInput=="ru"){
                 languageInput="fin";
                 textOutput.setHint(R.string.translate_ru);
@@ -79,6 +74,19 @@ public class MainActivity extends AppCompatActivity {
                 textOutput.setHint(R.string.translate_fin);
                 textInput.setHint(R.string.input_ru);
             }
+        }
+    };
+
+    private View.OnClickListener listenerHelp = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            dictionary = new Dictionary();
+            String originalText = String.valueOf(textInput.getText());
+            WordKey wordKey = new WordKey(originalText);
+            wordKey.partSearch = true;
+            String translated = dictionary.allWord.get(wordKey).getRu();
+            //String translated = dictionary.allWord.headMap(wordKey).toString();
+            textHint.setText(translated);
         }
     };
 }

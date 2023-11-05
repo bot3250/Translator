@@ -23,11 +23,14 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <!--Поле ввода-->
+
+    <!--Помянять язык-->
+
     <EditText
         android:id="@+id/editTextInput"
         android:layout_width="383dp"
         android:layout_height="150dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="112dp"
         android:background="@color/back_ground_input"
         android:gravity="start"
         android:hint="@string/input_ru"
@@ -36,10 +39,10 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewHeader" />
 
-    <!--Помянять язык-->
     <ImageButton
         android:id="@+id/imageButtonChange"
         android:layout_width="100dp"
@@ -72,16 +75,39 @@
         app:layout_constraintVertical_bias="0.063" />
 
     <!--кнопка перевести-->
+
     <Button
         android:id="@+id/buttonTranslate"
         android:layout_width="188dp"
         android:layout_height="44dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/back_ground_input"
         android:text="@string/translate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextOutput" />
+
+    <Button
+        android:id="@+id/buttonHelp"
+        android:layout_width="279dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/back_ground_input"
+        android:text="наити подсказку на русском"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTranslate" />
+
+    <TextView
+        android:id="@+id/textViewHint"
+        android:layout_width="380dp"
+        android:layout_height="85dp"
+        android:hint="подксказки на русском"
+        app:layout_constraintBottom_toTopOf="@+id/editTextInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHeader" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
